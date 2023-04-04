@@ -1,0 +1,190 @@
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.16.0/js/md5.js"></script>
+<script>
+$.ajaxPrefilter(function (options) {
+       if (options.crossDomain && jQuery.support.cors) {
+          var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+          options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+       }
+});
+var vid=location.href.split('html?id=')[1];
+if(vid=='cctv1'){assetID='27748'}//CCTV1HD
+if(vid=='cctv2'){assetID='42623'}//CCTV2HD
+if(vid=='cctv3'){assetID='27742'}//CCTV3HD
+if(vid=='cctv4'){assetID='42628'}//CCTV4HD
+if(vid=='cctv5'){assetID='27743'}//CCTV5HD
+if(vid=='cctv5p'){assetID='92405'}//CCTV5+
+if(vid=='cctv5phd'){assetID='98789'}//CCTV5+HD
+if(vid=='cctv6'){assetID='27746'}//CCTV6HD
+if(vid=='cctv7'){assetID='42629'}//CCTV7HD
+if(vid=='cctv8'){assetID='27749'}//CCTV8HD
+if(vid=='cctv9'){assetID='42630'}//CCTV9HD
+if(vid=='cctv10'){assetID='42631'}//CCTV10HD
+if(vid=='cctv11'){assetID='8412'}//CCTV11
+if(vid=='cctv12'){assetID='42632'}//CCTV12HD
+if(vid=='cctv13'){assetID='8420'}//CCTV13
+if(vid=='cctv14'){assetID='42633'}//CCTV14HD
+if(vid=='cctv15'){assetID='8421'}//CCTV15
+
+if(vid=='gfjs'){assetID='44195'}//国防军事
+if(vid=='dyjc'){assetID='44190'}//第一剧场
+if(vid=='hjjc'){assetID='44193'}//怀旧剧场
+if(vid=='fyjc'){assetID='44191'}//风云剧场
+if(vid=='fyyy'){assetID='98835'}//风云音乐
+if(vid=='fyzq'){assetID='44192'}//风云足球
+if(vid=='whjp'){assetID='98825'}//央视文化精品
+if(vid=='sjdl'){assetID='44194'}//世界地理
+if(vid=='nxss'){assetID='98867'}//女性时尚
+if(vid=='fxzl'){assetID='44209'}//发现之旅
+if(vid=='dszn'){assetID='98865'}//电视指南
+if(vid=='lgs'){assetID='44202'}//老故事
+if(vid=='shpd'){assetID='98907'}//书画频道
+if(vid=='gwewq'){assetID='98883'}//高尔夫.网球
+
+if(vid=='zsgw'){assetID='98819'}//中视购物
+if(vid=='yggw'){assetID='98811'}//央广购物
+if(vid=='zgtq'){assetID='98863'}//中国天气
+if(vid=='zhtc'){assetID='98905'}//中华特产
+
+if(vid=='cgtn'){assetID='8418'}//CGTN
+
+if(vid=='cetv1'){assetID='42634'}//CETV1HD
+if(vid=='cetv3'){assetID='92433'}//CETV3
+if(vid=='cetv4'){assetID='96100'}//CETV4
+if(vid=='zqjy'){assetID='98911'}//早期教育
+
+if(vid=='chcgqdy'){assetID='18689'}//CHC高清电影
+if(vid=='chcdzdy'){assetID='44197'}//CHC动作电影
+if(vid=='chcjtyy'){assetID='44196'}//CHC家庭影院
+
+if(vid=='bjws'){assetID='27747'}//北京卫视HD
+if(vid=='bjws2'){assetID='99005'}//北京卫视HD
+if(vid=='dfws'){assetID='31325'}//东方卫视HD
+if(vid=='tjws'){assetID='92430'}//天津卫视HD
+if(vid=='cqws'){assetID='8424'}//重庆卫视
+if(vid=='hljws'){assetID='92429'}//黑龙江卫视HD
+if(vid=='jlws'){assetID='32104'}//吉林卫视HD
+if(vid=='lnws'){assetID='77636'}//辽宁卫视HD
+if(vid=='nmws'){assetID='92408'}//内蒙古卫视
+if(vid=='nxws'){assetID='92421'}//宁夏卫视
+if(vid=='gsws'){assetID='92423'}//甘肃卫视
+if(vid=='qhws'){assetID='92415'}//青海卫视
+if(vid=='sxws'){assetID='92414'}//陕西卫视
+if(vid=='hbws'){assetID='92416'}//河北卫视
+if(vid=='sxiws'){assetID='92419'}//山西卫视
+if(vid=='sdws'){assetID='92426'}//山东卫视HD
+if(vid=='ahws'){assetID='8426'}//安徽卫视
+if(vid=='hnws'){assetID='92412'}//河南卫视
+if(vid=='hubws'){assetID='92427'}//湖北卫视HD
+if(vid=='hunws'){assetID='27745'}//湖南卫视HD
+if(vid=='jxws'){assetID='92411'}//江西卫视
+if(vid=='jsws'){assetID='27744'}//江苏卫视HD
+if(vid=='zjws'){assetID='27750'}//浙江卫视HD
+if(vid=='dnws'){assetID='96233'}//东南卫视
+if(vid=='xmws'){assetID='92434'}//厦门卫视
+if(vid=='gdws'){assetID='92428'}//广东卫视HD
+if(vid=='szws'){assetID='92431'}//深圳卫视HD
+if(vid=='gxws'){assetID='92409'}//广西卫视
+if(vid=='ynws'){assetID='8422'}//云南卫视
+if(vid=='gzws'){assetID='8423'}//贵州卫视
+if(vid=='scws'){assetID='92420'}//四川卫视
+if(vid=='xjws'){assetID='92417'}//新疆卫视
+if(vid=='btws'){assetID='92407'}//兵团卫视
+if(vid=='xzws'){assetID='92413'}//西藏卫视
+if(vid=='hinws'){assetID='32103'}//海南卫视HD
+if(vid=='ssws'){assetID='32102'}//三沙卫视
+
+if(vid=='bjwy'){assetID='31378'}//BTV文艺HD
+if(vid=='bjkj'){assetID='98784'}//BTV科教
+if(vid=='bjys'){assetID='8406'}//BTV影视"
+if(vid=='bjcj'){assetID='8407'}//BTV财*
+if(vid=='bjjs'){assetID='92435'}//BTV冬奥纪实HD
+if(vid=='bjsh'){assetID='8408'}//BTV生活
+if(vid=='bjqn'){assetID='8409'}//BTV青年
+if(vid=='bjxw'){assetID='8410'}//BTV新闻
+if(vid=='bjkk'){assetID='8250'}//BTV卡酷
+
+if(vid=='cmpd'){assetID='98837'}//车迷频道
+if(vid=='shdy'){assetID='44189'}//四海钓鱼
+if(vid=='dgyy'){assetID='98827'}//动感音乐
+if(vid=='xyl'){assetID='98829'}//新娱乐
+if(vid=='jsjc'){assetID='98821'}//京视剧场
+if(vid=='ytcq'){assetID='98879'}//弈坛春秋
+if(vid=='zypd'){assetID='96110'}//置业频道
+if(vid=='yybb'){assetID='98861'}//优优宝贝
+if(vid=='hqqg'){assetID='98909'}//环球奇观
+if(vid=='hqly'){assetID='98839'}//环球旅游
+if(vid=='bxjk'){assetID='98897'}//百姓健康
+if(vid=='ajgw'){assetID='98807'}//爱家购物
+if(vid=='jshqjx'){assetID='46047'}//聚鲨环球精选
+
+if(vid=='mtgtv'){assetID='99023'}//门头沟电视台
+if(vid=='pgtv'){assetID='99021'}//平谷电视台
+
+if(vid=='dfcj'){assetID='98889'}//东方财*
+if(vid=='shjs'){assetID='96120'}//上海纪实HD
+if(vid=='qjs'){assetID='98901'}//全纪实
+if(vid=='mlzq'){assetID='98831'}//魅力足球
+if(vid=='shss'){assetID='98857'}//生活时尚
+if(vid=='qcxj'){assetID='98833'}//七彩戏剧
+if(vid=='jbty'){assetID='98875'}//劲爆体育
+if(vid=='yxfy'){assetID='44200'}//游戏风云
+if(vid=='dmxc'){assetID='44201'}//动漫秀场
+if(vid=='jsqc'){assetID='98877'}//极速汽车
+if(vid=='fztd'){assetID='98903'}//法治天地
+if(vid=='dsjc'){assetID='44204'}//都市剧场
+if(vid=='hxjc'){assetID='98823'}//欢笑剧场
+if(vid=='jspd'){assetID='44206'}//金色频道
+if(vid=='dfgw'){assetID='98817'}//东方购物
+
+if(vid=='ssgw'){assetID='96102'}//时尚购物
+
+if(vid=='jllq'){assetID='98885'}//篮球
+
+if(vid=='jtlc'){assetID='98887'}//家庭理*
+if(vid=='yxjj'){assetID='98873'}//游戏竞技
+if(vid=='wlqp'){assetID='96112'}//网络棋牌
+if(vid=='jygw'){assetID='98805'}//家有购物
+
+if(vid=='ygw'){assetID='98813'}//优购物
+
+if(vid=='sdjy'){assetID='92406'}//山东教育卫视
+if(vid=='zhms'){assetID='98859'}//中华美食
+if(vid=='sctx'){assetID='98849'}//收藏天下
+
+if(vid=='jjgw'){assetID='98815'}//家家购物
+
+if(vid=='gxpd'){assetID='98891'}//国学频道
+
+if(vid=='xxzn'){assetID='98853'}//休闲指南
+
+if(vid=='cpd'){assetID='96116'}//茶频道
+if(vid=='jyjs'){assetID='96118'}//金鹰纪实HD
+if(vid=='jykt'){assetID='98915'}//金鹰卡通
+if(vid=='klg'){assetID='98809'}//快乐购
+
+if(vid=='fsgw'){assetID='96106'}//风尚购物
+
+if(vid=='jalz'){assetID='96114'}//靓妆
+if(vid=='cftx'){assetID='44212'}//财富天下
+if(vid=='hxgw'){assetID='96104'}//好享购物
+
+if(vid=='gef'){assetID='44213'}//高尔夫
+
+if(vid=='tywq'){assetID='44207'}//天元围棋
+
+var tm = (Math.round(new Date().getTime()/1000).toString())+1234;
+var params = 'app_version=1.0.0&assetID='+assetID+'&clientid=1&device_id=1B%3ADD%3A71%3AAC%3A08%3A60&ip=192.168.0.1&modules=programplay%3A1&playType=2&resourceCode='+assetID+'&siteid=10001&system_name=android&type=android';
+a = md5(params);
+b = '7ad794e167910229dc2dcec45749b9da';
+var sign = md5(a+b+tm);
+url = 'http://m.api.bjy-app.beijingcloud.com.cn/v2/audiovisual?app_version=1.0.0&sign='+sign+'&device_id=1B:DD:71:AC:08:60&time='+tm+'&assetID='+assetID+'&system_name=android&ip=192.168.0.1&siteid=10001&clientid=1&resourceCode='+assetID+'&modules=programplay:1&type=android&playType=2';
+    $.get(
+      url,
+      function(data){
+        var string=JSON.stringify(data);
+        var result=string.match(/"url":"(.*?)"/g);
+        m3u8=result[1].match(/"url":"(.*?)"/)[1].replace(/\\/g,'');
+        location.href=m3u8;
+});
+</script>
