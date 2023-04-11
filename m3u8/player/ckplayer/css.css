@@ -1,0 +1,16 @@
+a:link{
+ background-color: #990000; 
+ border:#ffff00 1px solid;
+ color: #00FF00; 
+ height: auto; 
+ padding:5px; 
+ text-decoration: none;
+}
+a:hover{
+ background-color: #c8d8f0; 
+ border:#0000ff 1px solid;
+ color: #00FF00; 
+ height: auto; 
+ padding:5px;
+ text-decoration: none;
+}
